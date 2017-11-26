@@ -27,4 +27,8 @@ public class GenericStack<E> {
     public boolean isEmpty(){
         return list.isEmpty();
     }
+
+    public void print(){
+        list.stream().forEach(item->System.out.println(item));
+    }
 }
