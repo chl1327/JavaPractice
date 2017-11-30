@@ -11,4 +11,24 @@ public class Max {
             return o2;
         }
     }
+
+    public static <E extends Comparable<E>> int binarySearch (E [] list,E key){
+        Integer low = 0, high = list.length;
+        Integer mid = (high - low)/2;
+        while (!key.equals(list[mid])){
+            if (key.compareTo(list[mid]) < 0) {
+                high = mid;
+            }else{
+                low = mid;
+            }
+            mid = (high - low) / 2;
+            if (key.equals(list[mid])) {
+                return mid;
+            }
+        }
+        return -1;
+    }
+
+
+
 }

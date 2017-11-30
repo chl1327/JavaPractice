@@ -1,8 +1,7 @@
 package com.java.app;
 
 import com.java.BaseMode.GenericStack;
-import com.java.BaseMode.Max;
-
+import java.util.*;
 
 public class GenericMethodDemo {
 
@@ -13,6 +12,7 @@ public class GenericMethodDemo {
         //m.test3();
         //Max.max("sdf","132");
         m.test4();
+        //m.test5();
         System.out.println("Hello World!");
     }
 
@@ -54,6 +54,13 @@ public class GenericMethodDemo {
         print(stack2);
     }
 
+    public void test5(){
+        ArrayList<Date> dates = new ArrayList<Date>();
+        dates.add(new Date());
+        Date date = dates.get(0);
+        System.out.println(date);
+    }
+
     /*泛型方法*/
     public static <E> void print(E[] list){
         for(E item: list){
@@ -78,7 +85,7 @@ public class GenericMethodDemo {
         }
     }
 
-    public static <T> void add(GenericStack<T> stack1, GenericStack<? super T> stack2){
+    public static <T> void add(GenericStack<? extends T> stack1, GenericStack<T> stack2){
         while (!stack1.isEmpty()){
             stack2.push(stack1.pop());
         }
