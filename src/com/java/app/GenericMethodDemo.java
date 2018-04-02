@@ -1,11 +1,11 @@
 package com.java.app;
 
-import com.java.TestFunction.TestFun22;
+import com.java.TestFunction.TestFun29;
 
 public class GenericMethodDemo {
 
     public static void main(String[] args) {
-        TestFun22 m = new TestFun22();
-        m.test6();
+        TestFun29 m = new TestFun29();
+        m.test1();
     }
 }
