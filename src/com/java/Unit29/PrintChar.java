@@ -14,13 +14,13 @@ public class PrintChar implements Runnable {
 
     public void run(){
 
-        try {
+        //try {
             for (int i = 0; i < times; i++) {
                 System.out.print(charToPrint);
-                if (i >= 50) Thread.sleep(1);
+                //if (i >= 50) Thread.sleep(1);
             }
-        }catch (InterruptedException ex){
+        /*}catch (InterruptedException ex){
 
-        }
+        }*/
     }
 }

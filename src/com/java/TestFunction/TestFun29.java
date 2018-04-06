@@ -3,6 +3,9 @@ package com.java.TestFunction;
 import com.java.Unit29.PrintChar;
 import com.java.Unit29.PrintNum;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * Created by 心痕 on 2018-4-3.
  */
@@ -19,5 +22,14 @@ public class TestFun29 {
         thread1.start();
         thread2.start();
         thread3.start();
+    }
+
+    public void test2(){
+        ExecutorService executor = Executors.newCachedThreadPool();
+        executor.execute(new PrintChar('a',100));
+        executor.execute(new PrintChar('b',100));
+        executor.execute(new PrintNum(100));
+
+        executor.shutdown();
     }
 }

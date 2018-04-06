@@ -6,6 +6,6 @@ public class GenericMethodDemo {
 
     public static void main(String[] args) {
         TestFun29 m = new TestFun29();
-        m.test1();
+        m.test2();
     }
 }
