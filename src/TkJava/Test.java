@@ -1,6 +1,6 @@
-package com.java.TkJava;
+package TkJava;
 
-import com.java.TkJava.TkU2.Practise;
+import TkJava.TkU2.Practise;
 
 /**
  * Created by chl1327 on 2018/8/8.

@@ -1,4 +1,4 @@
-package com.java.TkJava.TkU2;
+package TkJava.TkU2;
 
 /**
  * Created by chl1327 on 2018/8/8.
