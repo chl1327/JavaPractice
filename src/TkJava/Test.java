@@ -1,5 +1,7 @@
 package TkJava;
 
+import TkJava.TkU2.ATypeName;
+import TkJava.TkU2.DataOnly;
 import TkJava.TkU2.Practise;
 
 /**
@@ -8,6 +10,12 @@ import TkJava.TkU2.Practise;
 public class Test {
 
     public static void main(String[] args){
+        Test test = new Test();
+        test.Test1();
+    }
+
+
+    public void Test1(){
         Practise practise = new Practise();
         Practise practise1 = new Practise();
         System.out.println(practise1.toString());
@@ -15,5 +23,23 @@ public class Test {
         practise.increment();
         System.out.println(practise1.toString());
         System.out.println(practise.toString());
+        System.out.println(practise.storage("1111"));
     }
+
+
+    public void Test2(){
+        System.out.println("Hello,World");
+    }
+
+
+    public void Test3(){
+        ATypeName aTypeName = new ATypeName();
+        System.out.println(aTypeName.toString());
+    }
+
+    public void Test4(){
+        DataOnly dataOnly = new DataOnly();
+
+    }
+
 }

@@ -20,6 +20,10 @@ public class Practise {
                 '}';
     }
 
+    public  int storage(String s){
+        return s.length() * 2;
+    }
+
     public static void increment(){
         Practise.k++;
     }
