@@ -11,7 +11,7 @@ public class Test {
 
     public static void main(String[] args){
         Test test = new Test();
-        test.Test1();
+        test.Test5(args);
     }
 
 
@@ -40,6 +40,12 @@ public class Test {
     public void Test4(){
         DataOnly dataOnly = new DataOnly();
 
+    }
+
+    public void Test5(String[] args){
+        System.out.println("args[0] = " + args[0]);
+        System.out.println("args[1] = " + args[1]);
+        System.out.println("args[2] = " + args[2]);
     }
 
 }
