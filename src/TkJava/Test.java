@@ -1,8 +1,12 @@
 package TkJava;
 
+import TkJava.TKU6.TestAuthor;
+import TkJava.TKU6.*;
 import TkJava.TkU2.ATypeName;
 import TkJava.TkU2.DataOnly;
 import TkJava.TkU2.Practise;
+
+import static print.Print.print;
 
 /**
  * Created by chl1327 on 2018/8/8.
@@ -11,7 +15,7 @@ public class Test {
 
     public static void main(String[] args){
         Test test = new Test();
-        test.Test5(args);
+        test.Test6();
     }
 
 
@@ -46,6 +50,16 @@ public class Test {
         System.out.println("args[0] = " + args[0]);
         System.out.println("args[1] = " + args[1]);
         System.out.println("args[2] = " + args[2]);
+    }
+
+    public void Test6(){
+        TestAuthor testAuthor = new TestAuthor();
+        print(testAuthor.toString());
+        Vector vector = new Vector();
+    }
+
+    public void Test7(){
+
     }
 
 }
