@@ -2,6 +2,7 @@ package TkJava;
 
 import TkJava.TKU6.TestAuthor;
 import TkJava.TKU6.*;
+import TkJava.TKU6.debugoff.BuildTest;
 import TkJava.TkU2.ATypeName;
 import TkJava.TkU2.DataOnly;
 import TkJava.TkU2.Practise;
@@ -15,7 +16,7 @@ public class Test {
 
     public static void main(String[] args){
         Test test = new Test();
-        test.Test6();
+        test.Test7();
     }
 
 
@@ -59,7 +60,8 @@ public class Test {
     }
 
     public void Test7(){
-
+        BuildTest BuildTest = new BuildTest();
+        BuildTest.debug("1");
     }
 
 }
