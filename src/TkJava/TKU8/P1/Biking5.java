@@ -17,6 +17,7 @@ class Cycle {
 class Unicycle extends Cycle {
     private String name = "Unicycle";
     private int wheels = 1;
+    public void balance() { println("Balance Unicycle"); }
     @Override public int wheels() { return wheels; }
     public String toString() {
         return this.name;
@@ -26,6 +27,7 @@ class Unicycle extends Cycle {
 class Bicycle extends Cycle {
     private String name = "Bicycle";
     private int wheels = 2;
+    public void balance() { println("Balance Bicycle"); }
     @Override public int wheels() { return wheels; }
     public String toString() {
         return this.name;
@@ -54,5 +56,13 @@ public class Biking5 {
         ride(u); // upcast to Cycle
         ride(b);
         ride(t);
+
+        Cycle[] ride = {
+                new Unicycle(),
+                new Bicycle(),
+                new Tricycle(),
+        };
+        ((Unicycle)ride[0]).balance();
+        ((Bicycle)ride[1]).balance();
     }
 }
