@@ -1,12 +1,21 @@
 package TkJava.TKU10.P5;
 
+import static print.Print.print;
+
 interface Ex9Interface {
-    void say(String s);
+    String say(String s);
 }
 
 public class Ex9 {
     Ex9Interface f(Boolean b) {
-        if (b) {
+        return new Ex9Interface() {
+            @Override
+            public String say(String s) {
+                print(s);
+                return s;
+            }
+        };
+        /*if (b) {
             class Inner implements Ex9Interface {
                 public void say(String s) {
                     System.out.println(s);
@@ -14,7 +23,7 @@ public class Ex9 {
             }
             return new Inner();
         }
-        return null;
+        return null;*/
     }
     public static void main(String[] args) {
         Ex9 x = new Ex9();

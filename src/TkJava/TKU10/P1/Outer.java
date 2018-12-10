@@ -11,6 +11,7 @@ public class Outer {
         private void showIi2() { System.out.println(ii2); }
         private void hi() { System.out.println("Inner hi"); }
         Inner() { System.out.println("Inner()"); }
+        @Override
         public String toString() { return word; }
         void modifyOuter(){
             word = "321";
