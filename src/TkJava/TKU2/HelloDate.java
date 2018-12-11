@@ -1,5 +1,5 @@
 //: object/HelloDate.java
-package TkJava.TkU2;
+package TkJava.TKU2;
 
 import java.util.Date;
 

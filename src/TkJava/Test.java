@@ -3,9 +3,9 @@ package TkJava;
 import TkJava.TKU6.TestAuthor;
 import TkJava.TKU6.*;
 import TkJava.TKU6.debugoff.BuildTest;
-import TkJava.TkU2.ATypeName;
-import TkJava.TkU2.DataOnly;
-import TkJava.TkU2.Practise;
+import TkJava.TKU2.ATypeName;
+import TkJava.TKU2.DataOnly;
+import TkJava.TKU2.Practise;
 
 import static print.Print.print;
 

@@ -1,4 +1,4 @@
-package TkJava.TkU2;
+package TkJava.TKU2;
 
 /**
  * Created by chl1327 on 2018/8/15.
