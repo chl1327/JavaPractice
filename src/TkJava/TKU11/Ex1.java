@@ -2,6 +2,7 @@ package TkJava.TKU11;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import static print.Print.print;
@@ -24,8 +25,11 @@ public class Ex1 {
         for(int i = 0; i < 10; i++)
             gerbils.get(i).hop();
         // or, alternatively, using foreach syntax:
-        for(Gerbil g : gerbils)
-            g.hop();
+        /*for(Gerbil g : gerbils)
+            g.hop();*/
+        Iterator<Gerbil> it = gerbils.iterator();
+        while(it.hasNext())
+            it.next().hop();
         Set<Integer> c = new HashSet<Integer>();
         for (int i = 0; i<10; i++){
             c.add(i);
