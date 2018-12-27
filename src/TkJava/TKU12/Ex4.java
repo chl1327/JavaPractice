@@ -1,6 +1,6 @@
 package TkJava.TKU12;
 
-class Exception4 extends Exception {
+class Exception4 extends RuntimeException {
     private String msg;
     Exception4(String msg) {
         super(msg);
@@ -18,12 +18,12 @@ public class Ex4 {
         throw new Exception4("Ouch from f()");
     }
     public static void main(String[] args) {
-        try {
+        //try {
             f();
-        } catch(Exception4 e) {
+        /*} catch(Exception4 e) {
             System.err.println("Caught Exception4");
             e.printStackTrace();
             e.showS();
-        }
+        }*/
     }
 }

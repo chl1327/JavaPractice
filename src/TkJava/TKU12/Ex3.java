@@ -19,7 +19,8 @@ public class Ex3 {
             System.err.println(
                     "Caught ArrayIndexOutOfBoundsException");
             e.printStackTrace();
-            logException(e);
+            //logException(e);
+            throw new RuntimeException(e);
         }
     }
 }
