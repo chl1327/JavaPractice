@@ -1,6 +1,6 @@
 package TkJava.TKU12;
 
-class BaseballException extends Exception {}
+/*class BaseballException extends Exception {}
 class Foul extends BaseballException {}
 class Strike extends BaseballException {}
 class UmpireArgument extends BaseballException {}
@@ -24,15 +24,39 @@ class PopFoul extends Foul {}
 interface Storm {
     public void event() throws RainedOut;
     public void rainHard() throws RainedOut;
+}*/
+
+
+class BaseballException extends RuntimeException {}
+class Foul extends RuntimeException {}
+class Strike extends RuntimeException {}
+
+abstract class Inning {
+    public Inning() {}
+    public void event() {
+        // Doesn't actually have to throw anything
+    }
+    public abstract void atBat();
+    public void questionableCall(){}
+    public void walk() {} // Throws no checked exceptions
+}
+
+class StormException extends RuntimeException {}
+class RainedOut extends RuntimeException {}
+class PopFoul extends RuntimeException {}
+
+
+interface Storm {
+    public void event();
+    public void rainHard();
 }
 
 public class StormyInning20 extends Inning implements Storm {
     // OK to add new exceptions for constructors, but you
     // must deal with the base constructor exceptions:
-    public StormyInning20()
-            throws UmpireArgument, RainedOut, BaseballException {}
-    public StormyInning20(String s)
-            throws Foul, BaseballException {}
+    public StormyInning20() {}
+    public StormyInning20(String s) {}
+    public void atBat() {}
     // Regular methods must comform to base class:
     //! void walk() throws PopFoul {} // Compile error
     // Interface CANNOT add exceptions to existing
@@ -40,19 +64,19 @@ public class StormyInning20 extends Inning implements Storm {
     //! public void event() throws RainedOut {}
     // If method doesn't already exist in the
     // base class, the exception is OK:
-    public void rainHard() throws RainedOut {}
+    public void rainHard(){}
     // You can choose to not throw any exceptions,
     // even if the base class version does:
     public void event() {}
     // Overridden methods can throw inherited exceptions:
-    public void atBat() throws PopFoul, ThrownFromGame {
+/*    public void atBat() throws PopFoul, ThrownFromGame {
         throw new ThrownFromGame();
     }
     public void questionableCall() throws UmpireArgument {
         throw new UmpireArgument();
-    }
+    }*/
     public static void main(String[] args) {
-        try {
+       /* try {
             StormyInning20 si = new StormyInning20();
             si.atBat();
             si.questionableCall();
@@ -84,6 +108,11 @@ public class StormyInning20 extends Inning implements Storm {
             System.out.println("Rained out");
         } catch(BaseballException e) {
             System.out.println("Generic baseball exception");
-        }
+        }*/
+        StormyInning20 si = new StormyInning20();
+        si.atBat();
+        // What happens if you upcast?
+        Inning i = new StormyInning20();
+        i.atBat();
     }
 }
