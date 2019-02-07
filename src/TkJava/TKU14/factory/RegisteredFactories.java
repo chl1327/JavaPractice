@@ -1,5 +1,6 @@
 package TkJava.TKU14.factory;
 
+import net.mindview.util.Null;
 import net.mindview.util.Print;
 import net.mindview.util.TypeCounter;
 
@@ -26,7 +27,8 @@ class Part{
         partFactories.add(new OilFilter.Factory());
         partFactories.add(new FanBelt.Factory());
         partFactories.add(new PowerSteeringBelt.Factory());
-        partFactories.add(new GeneratorBelt.Factory());*/
+        partFactories.add(new GeneratorBelt.Factory());
+        partFactories.add(new NullPart.Factory());*/
         partClasses.add(FuelFilter.class);
         partClasses.add(AirFilter.class);
         partClasses.add(CabinAirFilter.class);
@@ -34,6 +36,7 @@ class Part{
         partClasses.add(FanBelt.class);
         partClasses.add(PowerSteeringBelt.class);
         partClasses.add(GeneratorBelt.class);
+        partClasses.add(NullPart.class);
 
     }
     private static Random rand = new Random(47);
@@ -52,6 +55,15 @@ class Part{
 }
 
 class Filter extends Part{}
+
+class NullPart extends Part implements Null {
+    private NullPart() { super(); }
+    public static final Part NULL = new NullPart();
+    public static class Factory implements TkJava.TKU14.factory.Factory<NullPart> {
+        public NullPart create() { return (NullPart)NULL; }
+    }
+    public String toString() { return "NULL"; }
+}
 
 class FuelFilter extends Filter{
     public static class Factory implements TkJava.TKU14.factory.Factory<FuelFilter>{
@@ -113,10 +125,10 @@ class PowerSteeringBelt extends Belt{
 
 public class RegisteredFactories {
     public static void main(String[] args){
-        TypeCounter counter = new TypeCounter(Part.class);
+        //TypeCounter counter = new TypeCounter(Part.class);
         for(int i = 0; i< 10; i++)
             println(Part.createRandom());
-        List<Part> partList = new ArrayList<Part>();
+       /* List<Part> partList = new ArrayList<Part>();
         for(int i = 0; i < 20; i++)
             partList.add(Part.createRandom());
         for(Part part : partList) {
@@ -124,6 +136,6 @@ public class RegisteredFactories {
             counter.count(part);
         }
         Print.print();
-        Print.print(counter);
+        Print.print(counter);*/
     }
 }

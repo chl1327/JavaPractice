@@ -1,5 +1,9 @@
 package TkJava.TKU14;
 
+import net.mindview.util.Print;
+
+import java.lang.reflect.InvocationTargetException;
+
 import static print.Print.print;
 import static print.Print.println;
 
@@ -8,8 +12,12 @@ interface Waterproof{}
 interface Shoots{}
 interface Gans{}
 class Toy{
-    Toy(){}
-    Toy(int i){}
+    Toy() {
+        Print.print("Creating Toy() object");
+    }
+    Toy(int i) {
+        Print.print("Creating Toy(" + i + ") object");
+    }
 }
 
 class FancyToy extends Toy implements HasBatteries,Waterproof,Shoots,Gans{
@@ -47,5 +55,17 @@ public class ToyTest {
             System.exit(1);
         }
         printInfo(obj.getClass());
+        try {
+            Toy.class.getDeclaredConstructor(int.class).newInstance(1);
+            // catch four exceptions:
+        } catch(NoSuchMethodException e) {
+            Print.print("No such method: " + e);
+        } catch(InstantiationException e) {
+            Print.print("Unable make Toy: " + e);
+        } catch(IllegalAccessException e) {
+            Print.print("Unable access: " + e);
+        } catch(InvocationTargetException e) {
+            Print.print("Target invocation problem: " + e);
+        }
     }
 }
