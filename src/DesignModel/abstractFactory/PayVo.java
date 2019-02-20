@@ -1,16 +1,25 @@
 package DesignModel.abstractFactory;
 
-public class payVo {
-    private String paymentWay;
+public class PayVo {
+    private String payBusiness;
     private String paymentType;
     private String paymentScene;
+    private String bizParam;
 
-    public String getPaymentWay() {
-        return paymentWay;
+    public String getBizParam() {
+        return bizParam;
     }
 
-    public void setPaymentWay(String paymentWay) {
-        this.paymentWay = paymentWay;
+    public void setBizParam(String bizParam) {
+        this.bizParam = bizParam;
+    }
+
+    public String getPayBusiness() {
+        return payBusiness;
+    }
+
+    public void setPayBusiness(String payBusiness) {
+        this.payBusiness = payBusiness;
     }
 
     public String getPaymentType() {

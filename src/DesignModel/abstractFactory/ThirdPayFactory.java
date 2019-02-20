@@ -1,14 +1,15 @@
 package DesignModel.abstractFactory;
 
-public class ThirdPayFactory extends AbstractFactory {
-    @Override
-    public ThirdPay getPayWay(payVo vo) {
-        if ("1".equals(vo.getPaymentWay())){
-            return new WeChatPay();
-        }else if ("2".equals(vo.getPaymentWay())){
-            return new Alipay();
+import DesignModel.abstractFactory.alipaychannel.AlipayChannel;
+
+public class ThirdPayFactory {
+
+    public ThirdPayChannel getChannel(PayVo vo){
+        if (vo.getPaymentType().equals("1")){
+            return new AlipayChannel();
         }else {
             return null;
         }
     }
+
 }

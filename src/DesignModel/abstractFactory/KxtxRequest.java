@@ -1,5 +1,4 @@
 package DesignModel.abstractFactory;
 
-public interface ThirdPay {
-
+public class KxtxRequest {
 }
