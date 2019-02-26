@@ -23,6 +23,9 @@ public class SixTupleTest {
         return new SixTuple<Robot, Vehicle, Amphibian, String, Integer, Double>(
                 new Robot(), new Vehicle(), new Amphibian(), "hi", 47, 11.1);
     }
+    public static <A, B, C, D, E, F> SixTuple<A, B, C, D, E, F> tuple(A a, B b, C c, D d, E e, F f) {
+        return new SixTuple<>(a, b, c, d, e,f);
+    }
     public static void main(String[] args) {
         SixTuple<Robot, Vehicle, Amphibian, String, Integer, Double> st = f();
         System.out.println(st);
