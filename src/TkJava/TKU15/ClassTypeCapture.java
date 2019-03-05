@@ -6,19 +6,35 @@ import java.util.Map;
 import static print.Print.print;
 import static print.Print.println;
 
+interface Factory<T> {
+    T create();
+}
+
 class Building{}
 class House extends Building{
 }
 
+class BuildingFactory implements Factory<Building> {
+    public Building create() {
+        return new Building();
+    }
+}
+
+class HouseFactory implements Factory<House> {
+    public House create() {
+        return new House();
+    }
+}
+
 public class ClassTypeCapture<T> {
     Class<?> kind;
-    Map<String,Class<?>> map;
+    Map<String,Factory> map;
 
     public ClassTypeCapture (Class<?> kind) {
         this.kind = kind;
     }
 
-    public ClassTypeCapture(Class<?> kind, Map<String,Class<?>> map) {
+    public ClassTypeCapture(Class<?> kind, Map<String,Factory> map) {
         this.kind = kind;
         this.map = map;
     }
@@ -27,13 +43,13 @@ public class ClassTypeCapture<T> {
         return kind.isInstance(arg);
     }
 
-    public void addType(String typename,Class<?> kind){
-        map.put(typename,kind);
+    public void addType(String typename,Factory factory){
+        map.put(typename,factory);
     }
 
     public Object createNew(String typename) throws IllegalAccessException, InstantiationException {
         if(map.containsKey(typename)) {
-            return map.get(typename).newInstance();
+            return map.get(typename).create();
         }
         System.out.println(typename + " class not available");
         return null;
@@ -47,9 +63,9 @@ public class ClassTypeCapture<T> {
         System.out.println(ctt2.f(new Building()));
         System.out.println(ctt2.f(new House()));
         ClassTypeCapture<Building> ct =
-                new ClassTypeCapture<Building>(Building.class, new HashMap<String, Class<?>>());
-        ct.addType("House", House.class);
-        ct.addType("Building", Building.class);
+                new ClassTypeCapture<Building>(Building.class, new HashMap<String, Factory>());
+        ct.addType("House", new HouseFactory());
+        ct.addType("Building", new BuildingFactory());
         println("ct.map = " + ct.map);
         try {
             Building b = (Building)ct.createNew("Building");
