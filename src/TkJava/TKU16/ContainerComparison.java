@@ -1,5 +1,7 @@
 package TkJava.TKU16;
 
+import net.mindview.util.Generated;
+import net.mindview.util.Generator;
 import net.mindview.util.Print;
 
 import java.util.Arrays;
@@ -7,16 +9,22 @@ import java.util.Arrays;
 import static print.Print.print;
 import static print.Print.println;
 
-class BerylliumSphere{
-    private static long counter;
-    private final long id = counter++;
-    public String toString(){
-        return "Sphere "+ id ;
-    }
 
-}
+
+
 
 public class ContainerComparison {
+    public static class BerylliumSphere implements Generator<BerylliumSphere>{
+        private static long counter;
+        private final long id = counter++;
+        public String toString(){
+            return "Sphere "+ id ;
+        }
+        @Override
+        public BerylliumSphere next() {
+            return new BerylliumSphere();
+        }
+    }
 
     public static void ArrayDraw(BerylliumSphere[] berylliumSpheres){
         for (int i = 0; i< berylliumSpheres.length; i++) {
@@ -43,7 +51,9 @@ public class ContainerComparison {
     }
 
     public static void main(String[] args){
-        BerylliumSphere[]  berylliumSpheres= {new BerylliumSphere(), new BerylliumSphere(), new BerylliumSphere()};
+
+        BerylliumSphere[]  berylliumSpheres= new BerylliumSphere[5];
+        berylliumSpheres = Generated.array(berylliumSpheres, new ContainerComparison.BerylliumSphere());
         ArrayDraw(berylliumSpheres);
         Print.print("For objects, e.g., BerylliumSpheres:");
         // Array is created and initialized (aggregate initialization)
