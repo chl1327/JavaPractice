@@ -1,0 +1,24 @@
+1: package TkJava.TKU17;
+2: 
+3: import net.mindview.util.TextFile;
+4: 
+5: import java.util.Arrays;
+6: import java.util.Collection;
+7: import java.util.TreeSet;
+8: 
+9: import static print.Print.println;
+10: 
+11: public class Ex4 {
+12:     static Collection<String> CollectFromText(String fileName) {
+13:         String[] sa = TextFile.read(fileName).split(" ");
+14:         return Arrays.asList(sa);
+15:     }
+16:     static Collection<String> CollectFromText2(String fileName) {
+17:         String[] sa = TextFile.read(fileName).split(" ");
+18:         return new TreeSet<String>(new TextFile(fileName, "\\W+"));
+19:     }
+20:     public static void main(String[] args) {
+21:         println(CollectFromText("Ex4.java"));
+22:         println(CollectFromText2("Ex4.java"));
+23:     }
+24: }
