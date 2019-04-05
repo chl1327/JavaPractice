@@ -18,8 +18,6 @@ public class Test {
         Test test = new Test();
         test.Test7();
     }
-
-
     public void Test1(){
         Practise practise = new Practise();
         Practise practise1 = new Practise();
