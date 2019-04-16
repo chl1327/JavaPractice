@@ -1,7 +1,5 @@
 package TkJava.TKU18;
 
-import net.mindview.util.OSExecute;
-
 import static print.Print.println;
 
 public class OSExecuteDemo extends Object {
