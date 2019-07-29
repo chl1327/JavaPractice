@@ -16,7 +16,19 @@ public class Test {
 
     public static void main(String[] args){
         Test test = new Test();
-        test.Test7();
+        test.aliTest();
+    }
+
+    public void aliTest(){
+        int num = Integer.MAX_VALUE;
+        long temp = num+2L;
+        System.out.println(num);
+    }
+    public static int inc(int temp){
+        if (temp >0){
+            return temp*2;
+        }
+        return -1;
     }
     public void Test1(){
         Practise practise = new Practise();
