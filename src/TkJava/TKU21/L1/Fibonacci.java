@@ -1,8 +1,8 @@
 package TkJava.TKU21.L1;
 
-import java.util.Iterator;
-
 import net.mindview.util.Generator;
+
+import java.util.Iterator;
 
 public class Fibonacci implements Generator<Integer>, Iterable<Integer>,Runnable{
     private int count = 0;
