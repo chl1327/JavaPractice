@@ -14,7 +14,7 @@ public class MainThread {
         ExecutorService exec = Executors.newCachedThreadPool();
         ArrayList<Future<Integer>> results = new ArrayList<>();
         for (int i = 0; i <10;i++){
-            results.add(exec.submit(new TkJava.TKU21.L3.Fibonacci(i)));
+            results.add(exec.submit(new TkJava.TKU21.L8.Fibonacci(i)));
         }
         for(Future<Integer> fi : results){
             try{
