@@ -12,11 +12,28 @@ import static print.Print.print;
 /**
  * Created by chl1327 on 2018/8/8.
  */
+interface IMessage{
+    public void send(String str);
+}
+class MessageImpl implements IMessage{
+    public void send(String str){
+        System.out.println("消息发送："+str);
+    }
+}
+class Factory{
+    public static <T> T getInstance(String className){
+        if ("message".equalsIgnoreCase(className)){
+            return (T)new MessageImpl();
+        }
+        return null;
+    }
+}
+
 public class Test {
 
     public static void main(String[] args){
-        Test test = new Test();
-        test.aliTest();
+       IMessage msg = Factory.getInstance("message");
+       msg.send("123");
     }
 
     public void aliTest(){
